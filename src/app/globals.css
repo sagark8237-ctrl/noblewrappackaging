@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Noblewrap Colors */
+  --color-nw-light: #70c143;
+  --color-nw-mid: #419b45;
+  --color-nw-dark: #116130;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  
+  --color-nw-light: var(--color-nw-light);
+  --color-nw-mid: var(--color-nw-mid);
+  --color-nw-dark: var(--color-nw-dark);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
