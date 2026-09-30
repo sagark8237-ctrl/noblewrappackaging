@@ -30,7 +30,7 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <a href="/" className="block relative h-16 w-48">
-                <Image src="/logo.jpeg" alt="Noblewrap Logo" fill className="object-contain mix-blend-multiply" priority />
+                <Image src="/logo-transparent.png" alt="Noblewrap Logo" fill className="object-contain" priority />
               </a>
             </div>
             <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -53,7 +53,7 @@ export default function RootLayout({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <div className="mb-4 relative h-12 w-36">
-                  <Image src="/logo.jpeg" alt="Noblewrap Logo" fill className="object-contain mix-blend-multiply grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100" />
+                  <Image src="/logo-transparent.png" alt="Noblewrap Logo" fill className="object-contain grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100" />
                 </div>
                 <p className="text-gray-500 text-sm">
                   Premium manufacturer of eco-friendly disposable paper products for all your business needs.
