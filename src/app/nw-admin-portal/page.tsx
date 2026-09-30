@@ -8,6 +8,8 @@ import { collection, getDocs, deleteDoc, doc, query, orderBy, addDoc, updateDoc 
 import { mockProducts } from "@/data/products";
 
 export default function AdminPortal() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [passkeyInput, setPasskeyInput] = useState("");
   const [activeTab, setActiveTab] = useState("products");
   const [enquiries, setEnquiries] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
@@ -134,6 +136,47 @@ export default function AdminPortal() {
       loadData();
     }
   };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passkeyInput === "2005") {
+      setIsAuthenticated(true);
+    } else {
+      alert("Incorrect Passkey");
+      setPasskeyInput("");
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="w-full min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 max-w-sm w-full border border-gray-100 text-center">
+          <div className="w-16 h-16 bg-nw-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Settings className="w-8 h-8 text-nw-dark" />
+          </div>
+          <h1 className="text-2xl font-bold font-serif text-gray-900 mb-2">Admin Access</h1>
+          <p className="text-gray-500 mb-8 font-light text-sm">Please enter the master passkey to access the Noblewrap admin portal.</p>
+          
+          <form onSubmit={handleLogin} className="space-y-4">
+            <input 
+              type="password" 
+              value={passkeyInput}
+              onChange={(e) => setPasskeyInput(e.target.value)}
+              placeholder="Enter Passkey"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-nw-mid/50 text-center tracking-widest text-lg"
+              autoFocus
+            />
+            <button 
+              type="submit" 
+              className="w-full bg-nw-dark text-white font-semibold py-3 rounded-lg hover:bg-nw-mid transition-colors"
+            >
+              Unlock Portal
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full min-h-screen bg-gray-50 flex">
